@@ -53,7 +53,7 @@
 				if(isset($_SESSION['creation']) && $_SESSION['creation'] == 1) {
 					$sql = "INSERT INTO courses (ID, Name, Category, Year, Term, Instructor, Level, Price, Description, Image) 
 							VALUES('$_POST[createdid]', '$_POST[createdname]', '$_POST[createdcategory]', '$_POST[createdyear]', '$_POST[createdterm]', 
-								   '$_POST[createdinstructor]', '$_POST[createdlevel]', '$_POST[createdprice]', '$_POST[createddescription]', 'css/images/single/Discrete-Mathematics.jpg')";
+									'$_POST[createdinstructor]', '$_POST[createdlevel]', '$_POST[createdprice]', '$_POST[createddescription]', 'css/images/single/Discrete-Mathematics.jpg')";
 					$result = mysqli_query($conn, $sql);
 					
 					$_SESSION['creation'] = 0;
