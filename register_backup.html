@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <link rel="shortcut icon" href="../../assets/ico/favicon.png">
+
+        <title>Course Selection</title>
+
+        <link id="switch_style" href="bootstrap/css/bootstrap.css" rel="stylesheet">
+		<link href="css/theme.css" rel="stylesheet">
+		
+		<script src="js/jquery-1.10.2.min.js"></script>
+		<script src="bootstrap/js/bootstrap.js"></script>
+		<script type="text/javascript" src="js/bootstrapValidator.js"></script>
+
+    </head>
+	<body>
+	
+		<nav class="navbar navbar-default" role="navigation">
+
+            <div class="container">
+
+                <div class="navbar-header">
+                    <a href="index.html" class="navbar-brand ">
+                        <span class="logo"><strong>Course</strong><br> 
+						<small>Study hard and make your dream come true</small></span>
+                    </a>
+                </div>
+
+                <div class="collapse navbar-collapse">
+
+                    <div class="nav navbar-nav navbar-right hidden-xs">
+                        <div class="row">
+
+                            <div class="pull-right">
+                                <a data-toggle="modal" data-target="#modalLogin"  href="#" class="btn btn-primary post-ad-btn">Login</a> | 
+                                <a href="register.html">Signup</a> | 
+                                <a href="history.html">History</a> | 
+                                <a href="course_create.html">Create</a>
+                            </div>	
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+		<hr class="topbar"/>
+		
+		<div class="container">
+
+			<div class="row">
+
+				<div class="col-sm-12">
+		
+					<h1 class ="text-center ">Create an Account</h1>
+					<br>
+					<div class="row">
+						
+						<div class="col-sm-12 col-md-6 col-md-offset-3">
+
+						<form id="defaultForm" method="post" class="form-vertical" action="ajaxSubmit.php">
+								<fieldset>
+									<div class="row">  
+										<div class="col-sm-12" >
+
+											<div class="well">
+												<div class="form-group">
+													<label for="exampleInputEmail1">First name</label>
+													<input type="text" class="form-control" name="username">
+												</div>
+												
+												<div class="form-group">
+													<label for="exampleInputEmail1">Last name</label>
+													<input type="text" class="form-control" name="username">
+												</div>
+												
+												<div class="form-group">
+													<label for="exampleInputEmail1">Email address</label>
+													<input type="text" class="form-control" name="email">
+												</div>
+												<div class="form-group">
+													<label for="exampleInputPassword1">Password</label>
+													<input type="password" class="form-control" name="password" placeholder="">
+												</div>
+												<div class="form-group">
+													<label for="exampleInputPassword1">Confirm password</label>
+													<input type="password" class="form-control" name="password" placeholder="">
+												</div>							  
+
+												<br>
+												<a href="#" class="btn btn-primary">Create account</a>
+											</div>
+										</div>
+									</div>
+
+								</div>
+							</form>
+				
+					</div>
+
+				</div>
+		
+			</div>
+	
+		</div>
+<!-- Modal -->
+<div class="modal fade" id="modalLogin" tabindex="-1" role="dialog" aria-labelledby="modalLogin" aria-hidden="true">
+			<div class="modal-dialog modal-md">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+						<h4 class="modal-title">Sign in to your account</h4>
+					</div>
+					<div class="modal-body">
+						<br>
+
+						<form method="POST" action="account_dashboard.html" accept-charset="UTF-8" id="user-login-form" class="form ajax" data-replace=".error-message p">
+
+							<div class="form-group">
+								<input placeholder="Username" class="form-control" name="username" type="text">                
+							</div>
+							
+							<div class="form-group">
+								<input placeholder="Email" class="form-control" name="email" type="text">                
+							</div>
+
+							<div class="form-group">
+								<input placeholder="Password" class="form-control" name="password" type="password" value="">                
+							</div>
+
+							<div class="row">
+								<div class="col-md-6">
+
+								</div>
+								<div class="col-md-6">
+									<button type="submit" class="btn btn-primary pull-right">Login</button>
+								</div>
+							</div>
+						</form>
+					</div>
+
+					<div class="modal-footer" style="text-align: center">
+						<div class="error-message"><p style="color: #000; font-weight: normal;">Don't have an account? <a class="link-info" href="register.html">Register now</a></p></div>
+					</div>
+
+				</div><!-- /.modal-content -->
+			</div><!-- /.modal-dialog -->
+		</div><!-- /.modal -->
+
+<script type="text/javascript">
+$(document).ready(function() {
+    $('#defaultForm')
+        .bootstrapValidator({
+            message: 'This value is not valid',
+            feedbackIcons: {
+                valid: 'glyphicon glyphicon-ok',
+                invalid: 'glyphicon glyphicon-remove',
+                validating: 'glyphicon glyphicon-refresh'
+            },
+            fields: {
+                username: {
+                    message: 'The username is not valid',
+                    validators: {
+                        notEmpty: {
+                            message: 'The username is required and can\'t be empty'
+                        },
+                        stringLength: {
+                            min: 6,
+                            max: 30,
+                            message: 'The username must be more than 6 and less than 30 characters long'
+                        },
+                        /*remote: {
+                            url: 'remote.php',
+                            message: 'The username is not available'
+                        },*/
+                        regexp: {
+                            regexp: /^[a-zA-Z0-9_\.]+$/,
+                            message: 'The username can only consist of alphabetical, number, dot and underscore'
+                        }
+                    }
+                },
+                email: {
+                    validators: {
+                        notEmpty: {
+                            message: 'The email address is required and can\'t be empty'
+                        },
+                        emailAddress: {
+                            message: 'The input is not a valid email address'
+                        }
+                    }
+                },
+                password: {
+                    validators: {
+                        notEmpty: {
+                            message: 'The password is required and can\'t be empty'
+                        }
+                    }
+                }
+            }
+        })
+        .on('success.form.bv', function(e) {
+            // Prevent form submission
+            e.preventDefault();
+
+            // Get the form instance
+            var $form = $(e.target);
+
+            // Get the BootstrapValidator instance
+            var bv = $form.data('bootstrapValidator');
+
+            // Use Ajax to submit form data
+            $.post($form.attr('action'), $form.serialize(), function(result) {
+                console.log(result);
+            }, 'json');
+        });
+});
+</script>
+
+</body>
+</html>

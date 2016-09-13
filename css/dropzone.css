@@ -1,0 +1,36 @@
+.dropzone.dz-clickable {
+  cursor: pointer;
+}
+.dropzone {
+  min-height: 360px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  background: rgba(0,0,0,0.03);
+  padding: 23px;
+  position: relative;
+  border: 1px solid rgba(0,0,0,0.08);
+  padding: 1em;
+}
+.dz-message {
+  opacity: 1;
+  -ms-filter: none;
+  filter: none;
+  -webkit-transition: opacity 0.3s ease-in-out;
+  -moz-transition: opacity 0.3s ease-in-out;
+  -o-transition: opacity 0.3s ease-in-out;
+  -ms-transition: opacity 0.3s ease-in-out;
+  transition: opacity 0.3s ease-in-out;
+  background-image: url("images/spritemap.png");
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  position: absolute;
+  width: 428px;
+  height: 123px;
+  margin-left: -214px;
+  margin-top: -61.5px;
+  top: 50%;
+  left: 50%;
+}
+.dz-message span {
+  display: none;
+}
